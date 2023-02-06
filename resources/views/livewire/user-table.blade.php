@@ -1,4 +1,5 @@
 <div>
+    @include('komponen.alert_succes')
     <table class="table">
         <thead>
             <tr>
@@ -15,9 +16,9 @@
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email }}</td>
                 <td>
-                    <a href="{{ route('users.show',$item->id) }}" class="badge bg-primary">Detail</a>
-                    <a href="" class="badge bg-warning">Edit</a>
-                    <a href="" class="badge bg-danger">Delete</a>
+                    <a href="{{ route('users.show',$item->id) }}" class="badge bg-primary button">Detail</a>
+                    <a href="{{ route('users.edit',$item->id) }}" class="badge bg-warning button">Edit</a>
+                   <button wire:click="delete({{ $item->id }})" class="btn badge bg-danger">delete</button>
                 </td>
             </tr>
             @endforeach
